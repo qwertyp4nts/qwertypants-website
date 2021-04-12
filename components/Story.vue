@@ -1,14 +1,16 @@
 <template>
-    <article class="story">
-        <div class="thumbnail" :style="{backgroundImage: 'url(' + cyberImg + ')'}"></div>
-        <h1>{{ title }}</h1>
-        <p>{{ previewText }}</p>
-    </article>
+    <nuxt-link :to="'/story/' + id">
+        <article class="story">
+            <div class="thumbnail" :style="{backgroundImage: 'url(' + cyberImg + ')'}"></div>
+            <h1>{{ title }}</h1>
+            <p>{{ previewText }}</p>
+        </article>
+    </nuxt-link>
 </template>
 
 <script>
 export default {
-    props: ['title', 'previewText', 'b'],
+    props: ['title', 'previewText', 'b', 'id'],
 
 computed: {
   cyberImg() {
@@ -20,6 +22,11 @@ computed: {
 </script>
 
 <style scoped>
+
+a {
+    text-decoration: none;
+    color: #D1BCE3;
+}
 
 .thumbnail {
     background-position: center;
